@@ -4,11 +4,11 @@ title: About
 permalink: /about/
 ---
 
-I’m a machine learning researcher at Qualcomm and finishing my PhD in Machine Learning at the University of Amsterdam where I work with Max Welling. I received a BSc in CS from Utrecht University and a MSc in AI from the University of Amsterdam (both cum laude). In 2013, I cofounded Scyfer, a company specialized in deep active learning (acquired by Qualcomm in 2017). During summer 2015 I worked on unsupervised learning of equivariant representations with Geoff Hinton at Google DeepMind. During fall 2016 / spring 2017 I spent some time at OpenAI. I received a Google PhD Fellowship and was named one of 35 innovators under 35 by MIT Techreview in 2018. Here is my CV.
+I joined Carnegie Mellon University as a  Ph.D. student in 2019 after receiving my B.S. in Physics and in Computer Science with highest honors from the University of North Carolina at Chapel Hill.
 
-My research is focussed on learning of equivariant representations for data-efficient deep learning. Besides improving data-efficiency, “equivariance to symmetry transformations” provides one of the first rational design principles for deep neural networks, and allows them to be more easily interpreted in geometrical terms than ordinary black-box networks.
+My graduate research is focussed on applications of low power wide area networks (LPWANs), especially sensor networks and their application in the realm of the Internet of Things (IoT). program decomposition for IoT systems and intelligent edge computing.
 
-I’m very excited by the application of these methods to medical image analysis, where data-efficiency is critical. More broadly, I’m fascinated by all things related to human cognition and perception, pure mathematics, and theoretical physics.
+Broadly speaking, I’m excited by all things related to applied mathematics, and theoretical physics.
 
 ### Contact me
 
