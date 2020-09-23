@@ -1,18 +1,108 @@
 ---
 layout: default
 ---
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+
+<!-- Back to top button -->
+<a id="back-to-top"></a>
+<div class="tags-expo">
+  <div class="tags-expo-list">
+    Tags: {% for tag in site.tags %}
+    <button class="post-tag" id="{{ tag[0] |slugify}}">#{{ tag[0] |slugify}}</button>
+    {% endfor %}
+  </div>
+</div>
+
 
 <div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+    {% for post in site.posts %}
+       <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+         <div class="entry">
+           {{ post.excerpt }}
+         </div>
+         <div class="date">
+           Written on {{ post.date | date: "%B %e, %Y" }}
+         </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+         <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+       </article>
+    {% endfor %}
 </div>
+
+
+<script>
+  var tags = [];
+  var Posts = Backbone.Collection.extend({
+    url: '/posts.json', // when we fetch, we get the JSON data Jekyll built for us
+    parse: function(posts) {
+        this.posts = posts;
+        this.idx = lunr(function() {
+          this.field('title', {boost: 10});
+          this.field('tags', {boost: 5});
+          this.field('excerpt');
+          this.ref('id');
+          var self = this;
+          _(posts).each(function(post) {
+              self.add(post);
+          });
+          return posts;
+        });
+
+    },
+    filter: function(term) {
+        var self = this;
+        var results = this.idx.search(term);
+
+        // return the matching models from our collection
+        return results.map((item) => {
+		        return self.posts.find((post) => item.ref === post.id)
+	      })
+    }
+  });
+
+  var posts = new Posts();
+  posts.fetch();
+
+  $(".post-tag").click(function(){
+    $(this).toggleClass("select");
+    tags = [];
+    $(".post-tag.select").each(function(){ tags.push(this.id); });
+    present(tags);
+  });
+
+  function present(tags){
+    if (tags.length == 0){
+      $(".post-tag").each(function(){ tags.push(this.id); });
+    }
+    var term = tags.join(" ");
+    var results = posts.filter(term);
+    for (r of results){
+      var html = "<article class='post'><h1><a href='{{ site.baseurl }}"+ r.url+"'>"+r.title+"</a></h1>" +
+                  "<div class='entry'><p>"+r.excerpt+"</p></div>" +
+                  "<div class='date'>Written on " + r.date + "</div>"+
+                  '<a href="{{ site.baseurl }}'+ r.url+ '"class="read-more">Read More</a></article>';
+
+      $(".posts").html(html);
+    }
+  };
+
+  var btn = $('#back-to-top');
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+</script>

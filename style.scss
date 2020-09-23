@@ -151,7 +151,7 @@ img {
 //
 
 .wrapper-masthead {
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
 }
 
 .masthead {
@@ -238,7 +238,9 @@ nav {
 }
 
 //
-// .main
+#main{
+   margin-bottom: 100px;
+}
 //
 
 .posts > .post {
@@ -272,6 +274,9 @@ nav {
 }
 
 .wrapper-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
@@ -281,8 +286,91 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
+  // position: fixed;
+  // bottom: 0;
+  // width: 100%;
 }
 
+@use postcss-color-function;
+@use postcss-nested;
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+
+/* Base styling */
+
+.tags-expo{
+  padding-top: 5px;
+  width : 100%;
+  color: #575756;
+  position: relative;
+  top: 0;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.post-tag{
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  background-color: #EFF0ED;
+  display: inline-block;
+  color: #626261;
+  border-radius: 10px;
+  &:hover {
+    background-color: #D8DAD4;
+    cursor: pointer;
+  }
+
+  &:focus {outline:0;}
+}
+
+.post-tag.select{
+  background-color: #A5DAFB;
+
+  color: white;
+}
+
+#back-to-top {
+  display: inline-block;
+  background-color: #2E98F1;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#back-to-top::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#back-to-top:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#back-to-top:active {
+  background-color: #555;
+}
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 500px) {
+  #back-to-top {
+    margin: 30px;
+  }
+}
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";

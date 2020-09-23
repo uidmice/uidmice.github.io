@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Debug SAMD21 (based on Feather M0)
+tag: [Hardware, PCB]
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).

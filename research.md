@@ -4,6 +4,13 @@ title: Research
 permalink: /research/
 ---
 
- My approach is based on using an extended data flow model for program decomposition and building an analytics framework on top of the program model to analyze the network cost (in terms of energy, compute, memory usage, and latency). The framework enables optimization at the system level by providing insights in managing computation and communication across the system; it also allows optimization at the application layer, where the developers can combine the application-specific knowledge with the feedback on the network cost to make design decisions.
+My graduate research is about LPWA networks with a special focus on system-wide optimization. Advised by Bob Iannucci, I am part of the Computation and Communication Structures Group ([CCSG](http://ccsg.ece.cmu.edu/wp/)) in Carnegie Mellon University's Electrical and Computer Engineering department. As a group, we explore the hardware and software structures for information communication and processing. I am also part of the Learning, Incentives, and Optimization for Networked Systems ([LIONS](https://research.ece.cmu.edu/lions/index.html)) research group advised by Carlee Joe-Wong. We study networked systems and how to do optimization given different user objectives and interactions.
 
-I also have some experience designing low-power hardware for IoT applications, which gives me the sense of what's happening and how energy is consumed at the low level while  optimizing at the system level.
+### Current research:
+* [TickTalk Project](http://ccsg.ece.cmu.edu/wp/index.php/home/ticktalk/)
+
+  **My contribution**: use an extended dataflow model to capture behaviors and operations of IoT applications, including communication, periodic sampling, etc. The model is further used to partition the program to run on a distributed system with optimized data communication.
+
+* Intelligent Communications for Disaster Response
+
+### Past project

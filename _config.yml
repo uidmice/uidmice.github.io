@@ -15,16 +15,16 @@ avatar: https://github.com/uidmice/uidmice.github.io/blob/master/images/logo.jpg
 # Includes an icon in the footer for each username you enter
 footer-links:
   email: yihu@andrew.cmu.edu
-  facebook: uidmice
+#  facebook:
   github: uidmice
-  instagram: uidmice
+#  instagram:
   linkedin: yi-hu-tong
-  twitter: uidmice
+#  twitter:
 
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-disqus: eve
+disqus: yi-hu-is-posting
 
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
