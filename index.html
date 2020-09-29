@@ -84,13 +84,14 @@ layout: default
     }
     var term = tags.join(" ");
     var results = posts.filter(term);
+    $(".posts").html("");
     for (r of results){
       var html = "<article class='post'><h1><a href='{{ site.baseurl }}"+ r.url+"'>"+r.title+"</a></h1>" +
                   "<div class='entry'><p>"+r.excerpt+"</p></div>" +
                   "<div class='date'>Written on " + r.date + "</div>"+
                   '<a href="{{ site.baseurl }}'+ r.url+ '"class="read-more">Read More</a></article>';
 
-      $(".posts").html(html);
+      $(".posts").append(html);
     }
   };
 
